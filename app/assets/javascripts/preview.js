@@ -9,8 +9,7 @@ function previewFile() {
 
   if (file) {
     reader.readAsDataURL(file);
+
+  $("#")
   }
 }
-
-<input id="browse" type="file" onchange="previewFiles()" multiple>
-<div id="preview"></div>

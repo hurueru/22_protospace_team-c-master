@@ -7,7 +7,21 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' =>  true
     = csrf_meta_tags
   %body
+    / <script src="preview.js"></script>
     = render "shared/header"
     = render "shared/messages"
     = yield
     = render "shared/footer"
+/ <link rel="stylesheet" href="application.css.scss">
+/ <div class="input_file">
+/     / <div class="">
+/         <input accept="image/*" id="imgFile" type="file">
+/     </div>
+/     <p class="btn_upload">
+/         画像ファイルを選択してアップロード
+/     </p>
+/ </div>
+/ プレビュー画面の一番大きいの
+/<div class="cover-image-apload" id"="main_uploader"> ==>$0
+小さい3つ
+
