@@ -1,0 +1,15 @@
+.col-sm-4.col-md-3.proto-content
+  %ul.more_list
+    - if user_signed_in? && current_user.id == prototype.user_id
+      %li
+        = link_to '削除', "/prototypes/#{prototype.id}", method: :delete
+  .thumbnail
+    = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
+    .caption
+      %h3
+        = prototype.title
+      .proto-meta
+        .proto-user
+          = link_to prototype.user.name, user_path(prototype.user)
+        .proto-posted
+          = prototype.posted_date
