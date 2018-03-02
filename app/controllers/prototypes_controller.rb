@@ -17,7 +17,7 @@ class PrototypesController < ApplicationController
       redirect_to :root, notice: 'New prototype was successfully created'
     else
       redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'
-     end
+    end
   end
 
   def show
@@ -31,20 +31,21 @@ class PrototypesController < ApplicationController
 
   private
 
-  def create_params
-    params.require(:prototype).permit(thumbnails_attributes: [:image])
+    def create_params
+      params.require(:prototype).permit(thumbnails_attributes: [:image])
 
-  def set_prototype
-    @prototype = Prototype.find(params[:id])
-  end
+    def set_prototype
+      @prototype = Prototype.find(params[:id])
+    end
 
-  def prototype_params
-    params.require(:prototype).permit(
-      :title,
-      :catch_copy,
-      :concept,
-      :user_id,
-      captured_images_attributes: [:content, :status]
-    )
+    def prototype_params
+      params.require(:prototype).permit(
+        :title,
+        :catch_copy,
+        :concept,
+        :user_id,
+        captured_images_attributes: [:content, :status]
+      )
+    end
   end
 end
