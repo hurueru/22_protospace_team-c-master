@@ -1,9 +1,9 @@
-class Prototype < ActiveRecord::Base
-  belongs_to :user
-  has_many :captured_images, dependent: :destroy
-  has_many :thummbnails
+class Tumbnail < ActiveRecord::Bsse
+  belongs_to :prototype
 
-  accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images, :thumbnails
+mont_uploader :image, ThumbnailUploader
+
+  accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
 
   validates :title,
             :catch_copy,
@@ -21,4 +21,6 @@ class Prototype < ActiveRecord::Base
   def posted_date
     created_at.strftime('%b %d %a')
   end
+
+
 end

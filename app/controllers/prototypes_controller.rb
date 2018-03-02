@@ -6,7 +6,8 @@ class PrototypesController < ApplicationController
   end
 
   def new
-    @prototype = Prototype.new
+    @prototype = Prototype.new(create_params)
+    4.times { @prototype.thumbnails.build }
     @prototype.captured_images.build
   end
 
@@ -29,6 +30,9 @@ class PrototypesController < ApplicationController
   end
 
   private
+
+  def create_params
+    params.require(:prototype).permit(thumbnails_attributes: [:image])
 
   def set_prototype
     @prototype = Prototype.find(params[:id])
